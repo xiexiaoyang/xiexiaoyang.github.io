@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yangyoy.cn">
   <title>hexo yilia主题 无法显示头像 | XiaoYang&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如图  原因是源文件有bug 先修改themes\yilia\layout_partial\left-col.ejs的第六行，改为 12&amp;lt;img src=&amp;quot;&amp;lt;%=theme.root%&amp;gt;&amp;lt;%=theme.avatar%&amp;gt;&amp;quot; class=&amp;quot;js-avatar&amp;quot;&amp;gt; 同时，还要修改themes\yilia\layout_part">
+  <meta name="description" content="如图">
 <meta name="keywords" content="hexo,yilia">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo yilia主题 无法显示头像">
 <meta property="og:url" content="http://yangyoy.cn/2019/03/07/hexo-yilia主题-无法显示头像/index.html">
 <meta property="og:site_name" content="XiaoYang&#39;Blog">
-<meta property="og:description" content="如图  原因是源文件有bug 先修改themes\yilia\layout_partial\left-col.ejs的第六行，改为 12&amp;lt;img src=&amp;quot;&amp;lt;%=theme.root%&amp;gt;&amp;lt;%=theme.avatar%&amp;gt;&amp;quot; class=&amp;quot;js-avatar&amp;quot;&amp;gt; 同时，还要修改themes\yilia\layout_part">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:description" content="如图">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="https://raw.githubusercontent.com/xiexiaoyang/picgo/master/img/20190307094313.png">
-<meta property="og:updated_time" content="2019-03-07T03:16:13.878Z">
+<meta property="og:updated_time" content="2019-03-07T08:34:22.645Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo yilia主题 无法显示头像">
-<meta name="twitter:description" content="如图  原因是源文件有bug 先修改themes\yilia\layout_partial\left-col.ejs的第六行，改为 12&amp;lt;img src=&amp;quot;&amp;lt;%=theme.root%&amp;gt;&amp;lt;%=theme.avatar%&amp;gt;&amp;quot; class=&amp;quot;js-avatar&amp;quot;&amp;gt; 同时，还要修改themes\yilia\layout_part">
+<meta name="twitter:description" content="如图">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/xiexiaoyang/picgo/master/img/20190307094313.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoYang&#39;Blog" type="application/atom+xml">
@@ -54,8 +54,10 @@
 
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Xiao Yang</a></h1>
+		  <h1 class="header-author"><a href="/">XiaoYang</a></h1>
 		</hgroup>
+		
+		<p class="header-subtitle">要么忙着活，要么忙着死</p>
 		
 
 		<nav class="header-menu">
@@ -63,7 +65,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/archives/index.html">归档</a></li>
 	        
 			</ul>
 		</nav>
@@ -113,8 +115,10 @@
 
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Xiao Yang</h1>
+			  <h1 class="header-author js-header-author">XiaoYang</h1>
 			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>要么忙着活，要么忙着死<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -144,7 +148,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/archives/index.html">归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -179,8 +183,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>如图</p>
-<p><img src="https://raw.githubusercontent.com/xiexiaoyang/picgo/master/img/20190307094313.png" alt="image"></p>
+        <h3 id="如图"><a href="#如图" class="headerlink" title="如图"></a>如图</h3><p><img src="https://raw.githubusercontent.com/xiexiaoyang/picgo/master/img/20190307094313.png" alt="image"></p>
+<a id="more"></a>
 <p>原因是源文件有bug</p>
 <p>先修改themes\yilia\layout_partial\left-col.ejs的第六行，改为</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;img src=&quot;&lt;%=theme.root%&gt;&lt;%=theme.avatar%&gt;&quot; class=&quot;js-avatar&quot;&gt;</span><br></pre></td></tr></table></figure>
@@ -191,7 +195,7 @@
 <p><strong><em>注意 ：一定是yilia目录下的配置文件</em></strong></p>
 <p>同理 图标也类似</p>
 <hr>
-<p><a href="https://davidham3.github.io/blog/2018/07/13/hexo-yilia-%E4%B8%BB%E9%A2%98/" target="_blank" rel="noopener">参考：https://davidham3.github.io/blog/2018/07/13/hexo-yilia-%E4%B8%BB%E9%A2%98/</a></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://davidham3.github.io/blog/2018/07/13/hexo-yilia-%E4%B8%BB%E9%A2%98/" target="_blank" rel="noopener">https://davidham3.github.io/blog/2018/07/13/hexo-yilia-%E4%B8%BB%E9%A2%98/</a></p>
 
       
 
@@ -207,6 +211,11 @@
                 <span class="tooltip-inner">
                   <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
                     
                     
                   </div>
@@ -322,6 +331,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#如图"><span class="toc-number">1.</span> <span class="toc-text">如图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -345,7 +367,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Xiao Yang
+    		&copy; 2019 XiaoYang
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
