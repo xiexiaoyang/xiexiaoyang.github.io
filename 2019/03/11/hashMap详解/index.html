@@ -6,18 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yangyoy.cn">
-  <title>Tag: yilia | XiaoYang&#39;Blog</title>
+  <title>hashMap详解 | XiaoYang&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="人生在世，要么忙着活，要么忙着死">
-<meta property="og:type" content="website">
-<meta property="og:title" content="XiaoYang&#39;Blog">
-<meta property="og:url" content="http://yangyoy.cn/tags/yilia/index.html">
+  <meta name="description" content="HashMap是什么首先理解map，map是key-value的形式，生活中有很多这样的数据结构。如一个学号对应一个姓名，一个国家对应一个首都，都是一对一的关系，map进行了抽象。">
+<meta name="keywords" content="java,hashMap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hashMap详解">
+<meta property="og:url" content="http://yangyoy.cn/2019/03/11/hashMap详解/index.html">
 <meta property="og:site_name" content="XiaoYang&#39;Blog">
-<meta property="og:description" content="人生在世，要么忙着活，要么忙着死">
+<meta property="og:description" content="HashMap是什么首先理解map，map是key-value的形式，生活中有很多这样的数据结构。如一个学号对应一个姓名，一个国家对应一个首都，都是一对一的关系，map进行了抽象。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://xiexiaoyang.github.io/picgo/images/20190309161611.png">
+<meta property="og:image" content="https://xiexiaoyang.github.io/picgo/images/20190309162330.png">
+<meta property="og:image" content="https://xiexiaoyang.github.io/picgo/images/20190309162825.png">
+<meta property="og:image" content="https://xiexiaoyang.github.io/picgo/images/20190309164352.png">
+<meta property="og:image" content="https://xiexiaoyang.github.io/picgo/images/20190309170357.png">
+<meta property="og:image" content="https://xiexiaoyang.github.io/picgo/images/20190309171205.png">
+<meta property="og:image" content="https://xiexiaoyang.github.io/picgo/images/20190309171530.png">
+<meta property="og:image" content="https://xiexiaoyang.github.io/picgo/images/20190309171706.png">
+<meta property="og:image" content="https://xiexiaoyang.github.io/picgo/images/20190311091848.png">
+<meta property="og:image" content="https://xiexiaoyang.github.io/picgo/images/20190311092232.png">
+<meta property="og:image" content="https://xiexiaoyang.github.io/picgo/images/734980-20160321202819339-1766710264.png">
+<meta property="og:updated_time" content="2019-03-11T02:23:04.716Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XiaoYang&#39;Blog">
-<meta name="twitter:description" content="人生在世，要么忙着活，要么忙着死">
+<meta name="twitter:title" content="hashMap详解">
+<meta name="twitter:description" content="HashMap是什么首先理解map，map是key-value的形式，生活中有很多这样的数据结构。如一个学号对应一个姓名，一个国家对应一个首都，都是一对一的关系，map进行了抽象。">
+<meta name="twitter:image" content="https://xiexiaoyang.github.io/picgo/images/20190309161611.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoYang&#39;Blog" type="application/atom+xml">
   
@@ -159,64 +173,293 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-hashMap详解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/07/hexo-yilia主题-无法显示头像/" class="archive-article-date">
-  	<time datetime="2019-03-07T03:11:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-07 11:11:41</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/07/hexo-yilia主题-无法显示头像/">hexo yilia主题 无法显示头像</a>
+    <h1 class="article-title" itemprop="name">
+      hashMap详解
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/11/hashMap详解/" class="archive-article-date">
+  	<time datetime="2019-03-11T02:19:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-11 10:19:33</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HashMap是什么"><a href="#HashMap是什么" class="headerlink" title="HashMap是什么"></a>HashMap是什么</h2><p>首先理解map，map是key-value的形式，生活中有很多这样的数据结构。如一个学号对应一个姓名，一个国家对应一个首都，都是一对一的关系，map进行了抽象。</p>
+<a id="more"></a>
+<p>AbstractMap抽象类定义map的主干实现，它的成员变量有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transient volatile Set&lt;K&gt;        keySet; //;keySet, 保存 map 中所有键的 Set （所以key值是唯一的，并且是不可变）</span><br><span class="line">transient volatile Collection&lt;V&gt; values;//values, 保存 map 中所有值的集合</span><br></pre></td></tr></table></figure>
+<p>此外定义成员方法如 put，get</p>
+<p>HashMap存储键值对 key-value 的集合，每一个key-value也叫entry，它继承了 AbstractMap抽象类，并实现了Map接口。</p>
+<h2 id="怎么实现"><a href="#怎么实现" class="headerlink" title="怎么实现"></a>怎么实现</h2><p>HashMap的底层实现是数组+链表，并通过hash函数来确定entry的index</p>
+<h3 id="put方法的实现原理"><a href="#put方法的实现原理" class="headerlink" title="put方法的实现原理"></a>put方法的实现原理</h3><p>当我们要存储一个键值对，如haspMap.put(“dog”,3),它是怎么实现呢</p>
+<p>首先用哈希函数获取到entry插入的bucket</p>
+<p>index = hash(“dog”) 假定hash值为2，那么结果就是</p>
+<p><img src="https://xiexiaoyang.github.io/picgo/images/20190309161611.png" alt></p>
+<p>但hashMap的长度也是有限的，再完美的hash函数也会碰到相同的hash值，这时怎么决解</p>
+<p><img src="https://xiexiaoyang.github.io/picgo/images/20190309162330.png" alt="image"></p>
+<p>很简单使用链表解决冲突，注意这里使用的是后插法，因为作者认为后插的元素更为常用</p>
+<p><img src="https://xiexiaoyang.github.io/picgo/images/20190309162825.png" alt="image"></p>
+<ul>
+<li>HashMap 中可以保存键为NULL的键值对，且该键值对是唯一的。若再次向其中添加键为NULL的键值对，将覆盖其原值</li>
+</ul>
+<h3 id="get方法原理"><a href="#get方法原理" class="headerlink" title="get方法原理"></a>get方法原理</h3><p>当我们要用key值“dog”获取value时，先用key键获得hash值2，也就是 到bucket为2 的地方去找，但同一个bucket可能有多个entry，发生碰撞，调用key.equal方法，比较key值，直到key为“dog”的值</p>
+<p><img src="https://xiexiaoyang.github.io/picgo/images/20190309164352.png" alt="image"></p>
+<h3 id="HahsMap的初始长度是多少"><a href="#HahsMap的初始长度是多少" class="headerlink" title="HahsMap的初始长度是多少"></a>HahsMap的初始长度是多少</h3><p>HashMap默认的初始长度为16 并且每次扩展或手动初始化时长度必须为2的幂</p>
+<h3 id="为什么长度是2的幂"><a href="#为什么长度是2的幂" class="headerlink" title="为什么长度是2的幂"></a>为什么长度是2的幂</h3><p>我们所需要的index是key值通过hash算法得来的，如何实现一个映射均匀的hash函数呢？这里利用key的hashCode和hashMap的进行位运算，公式如下：</p>
+<p><strong>index = hashCode 与（hashMap.length-1）</strong></p>
+<p>若默认情况下的hashMap.length为16 -1为 15，二进制值为1111，假设“dog”hashCode 为101110001110101110 1001 进行与运算</p>
+<p><img src="https://xiexiaoyang.github.io/picgo/images/20190309170357.png" alt="image"></p>
+<p>index 为9</p>
+<p>可以说index最终结果取决于 key的hashCode的最后几位</p>
+<p>如果hashmap的默认长度不是16 而是其他会怎么样？</p>
+<p>比如10，那么10-1的二进制为 1001 </p>
+<p>101110001110101110 1001进行与运算</p>
+<p><img src="https://xiexiaoyang.github.io/picgo/images/20190309171205.png" alt="image"></p>
+<p>结果看不出说明区别，换一个hashCode  101110001110101110 10==1==1</p>
+<p><img src="https://xiexiaoyang.github.io/picgo/images/20190309171530.png" alt="image"></p>
+<p>再换一个hashCode  101110001110101110 1==11==1</p>
+<p><img src="https://xiexiaoyang.github.io/picgo/images/20190309171706.png" alt="image"></p>
+<p>在长度为10的情况下，有些index出现的概率更大些如 1001</p>
+<p>但有些index根本不可能出现  如 0111</p>
+<p>这显然不符合hash算法分布均匀的要求 </p>
+<p>而在长度为2的幂下 长度-1二进制位都是1<br>结果完全取决于key的hashcode</p>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><ul>
+<li><p>HashMap()：构造一个具有默认初始容量 (16) 和默认加载因子 (0.75) 的空 HashMap。</p>
+</li>
+<li><p>HashMap(int initialCapacity)：构造一个带指定初始容量和默认加载因子 (0.75) 的空 HashMap。</p>
+</li>
+<li><p>HashMap(int initialCapacity, float loadFactor)：构造一个带指定初始容量和加载因子的空 HashMap。</p>
+</li>
+</ul>
+<h3 id="成员函数"><a href="#成员函数" class="headerlink" title="成员函数"></a>成员函数</h3><ul>
+<li>void clear( )<br> 从此映射中移除所有映射关系（可选操作）。</li>
+<li>boolean containsKey(Object k)<br>如果此映射包含指定键的映射关系，则返回 true。</li>
+<li>boolean containsValue(Object v)<br>如果此映射将一个或多个键映射到指定值，则返回 true。</li>
+<li>Set entrySet( )<br>返回此映射中包含的映射关系的 Set 视图。</li>
+<li>boolean equals(Object obj)<br>比较指定的对象与此映射是否相等。</li>
+<li>Object get(Object k)<br>返回指定键所映射的值；如果此映射不包含该键的映射关系，则返回 null。</li>
+<li>int hashCode( )<br>返回此映射的哈希码值。</li>
+<li>boolean isEmpty( )<br>如果此映射未包含键-值映射关系，则返回 true。</li>
+<li>Set keySet( )<br>返回此映射中包含的键的 Set 视图。</li>
+<li>Object put(Object k, Object v)<br>将指定的值与此映射中的指定键关联（可选操作）。</li>
+<li>void putAll(Map m)<br>从指定映射中将所有映射关系复制到此映射中（可选操作）。</li>
+<li>Object remove(Object k)<br>如果存在一个键的映射关系，则将其从此映射中移除（可选操作）。</li>
+<li>int size( )<br>返回此映射中的键-值映射关系数。</li>
+<li>Collection values( )<br>返回此映射中包含的值的 Collection 视图。</li>
+</ul>
+<h3 id="遍历方法"><a href="#遍历方法" class="headerlink" title="遍历方法"></a>遍历方法</h3><ul>
+<li>通过Map.keySet遍历key和value</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String,String&gt; map=new HashMap&lt;String,String&gt;();</span><br><span class="line"></span><br><span class="line">for(String key:map.keySet())</span><br><span class="line">&#123;</span><br><span class="line"> System.out.println(&quot;Key: &quot;+key+&quot; Value: &quot;+map.get(key));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过Map.values()遍历所有的value，但不能遍历key</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for(String v:map.values())</span><br><span class="line">&#123;</span><br><span class="line"> System.out.println(&quot;The value is &quot;+v);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过Map.entrySet遍历key和value</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for(Map.Entry&lt;String, String&gt; entry: map.entrySet())</span><br><span class="line">&#123;</span><br><span class="line"> System.out.println(&quot;Key: &quot;+ entry.getKey()+ &quot; Value: &quot;+entry.getValue());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过Map.entrySet使用iterator遍历key和value</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Iterator map1it=map.entrySet().iterator();</span><br><span class="line">while(map1it.hasNext())</span><br><span class="line">&#123;</span><br><span class="line"> Map.Entry&lt;String, String&gt; entry=(Entry&lt;String, String&gt;) map1it.next();</span><br><span class="line"> System.out.println(&quot;Key: &quot;+entry.getKey()+&quot; Value: &quot;+entry.getValue());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="高并发下HashMap"><a href="#高并发下HashMap" class="headerlink" title="高并发下HashMap"></a>高并发下HashMap</h2><h3 id="rehash"><a href="#rehash" class="headerlink" title="rehash"></a>rehash</h3><p>hashMap的容量是有限的，在hashmap过于饱和下插入数据，key映射的时候发生碰撞的几率大大增加</p>
+<p>这时我们需要扩大hashMap的容量，叫做ReSize</p>
+<p>触发ReSize的条件为  HashMap.Size   &gt;=  Capacity * LoadFactor</p>
+<p>其中</p>
+<ul>
+<li>HashMap.Size 为hashMapentry的个数即键-值对的数量</li>
+<li>Capacity为hashMap的长度 上面提到为2的幂</li>
+<li>LoadFactor 负载因子，默认0.75f</li>
+</ul>
+<p>resize并不是简单的扩大数组的长度</p>
+<h3 id="1-扩容"><a href="#1-扩容" class="headerlink" title="1. 扩容"></a>1. 扩容</h3><p>新建一个数组，且长度是原数组的两倍</p>
+<h3 id="2-ReHash"><a href="#2-ReHash" class="headerlink" title="2. ReHash"></a>2. ReHash</h3><p>遍历原先的数组将entry重新hash到新数组中，为什么要rehash，因为hash的规则发生改变</p>
+<p>上面提到  index = key.hashcode &amp; (map.length-1)<br>length发生改变，index与先前的也不同<br>​<br>resize前</p>
+<p><img src="https://xiexiaoyang.github.io/picgo/images/20190311091848.png" alt="image"></p>
+<p>resize后</p>
+<p><img src="https://xiexiaoyang.github.io/picgo/images/20190311092232.png" alt="image"></p>
+<p>但是hashmap并非线程安全的，在多线程下rehash是不安全的</p>
+<p>两个线程同时进行put操作，可能会形成循环链表，<br>进行get操作陷入死循环</p>
+<p><img src="https://xiexiaoyang.github.io/picgo/images/734980-20160321202819339-1766710264.png" alt="侵删"></p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>JDK1.8 引入了红黑树，当bucket中的entry数量超过8这个阈值链表转为红黑树，以提高hashMap的性能</p>
+<p>JDK1.8 数据转移使用尾插法，不会出现死循环 但 JDK 1.8 还是线程不安全，因为 无加同步锁保护</p>
+<p> HashMap是线程不安全的，不要在并发的环境中同时操作HashMap，建议使用ConcurrentHashMap</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/" target="_blank" rel="noopener">https://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&amp;mid=2653191907&amp;idx=1&amp;sn=876860c5a9a6710ead5dd8de37403ffc&amp;chksm=8c990c39bbee852f71c9dfc587fd70d10b0eab1cca17123c0a68bf1e16d46d71717712b91509&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzIxMjE5MTE1Nw==&amp;mid=2653191907&amp;idx=1&amp;sn=876860c5a9a6710ead5dd8de37403ffc&amp;chksm=8c990c39bbee852f71c9dfc587fd70d10b0eab1cca17123c0a68bf1e16d46d71717712b91509&amp;scene=21#wechat_redirect</a></p>
+<p><a href="https://blog.csdn.net/u012156116/article/details/81206649" target="_blank" rel="noopener">https://blog.csdn.net/u012156116/article/details/81206649</a></p>
+<p><a href="https://blog.csdn.net/carson_ho/article/details/79373134" target="_blank" rel="noopener">https://blog.csdn.net/carson_ho/article/details/79373134</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">hashMap</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yangyoy.cn/2019/03/11/hashMap详解/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/03/11/为什么要有hashCode/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">为什么要有hashCode</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HashMap是什么"><span class="toc-number">1.</span> <span class="toc-text">HashMap是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#怎么实现"><span class="toc-number">2.</span> <span class="toc-text">怎么实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#put方法的实现原理"><span class="toc-number">2.1.</span> <span class="toc-text">put方法的实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#get方法原理"><span class="toc-number">2.2.</span> <span class="toc-text">get方法原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HahsMap的初始长度是多少"><span class="toc-number">2.3.</span> <span class="toc-text">HahsMap的初始长度是多少</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么长度是2的幂"><span class="toc-number">2.4.</span> <span class="toc-text">为什么长度是2的幂</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用法"><span class="toc-number">3.</span> <span class="toc-text">用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造函数"><span class="toc-number">3.1.</span> <span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成员函数"><span class="toc-number">3.2.</span> <span class="toc-text">成员函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遍历方法"><span class="toc-number">3.3.</span> <span class="toc-text">遍历方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高并发下HashMap"><span class="toc-number">4.</span> <span class="toc-text">高并发下HashMap</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rehash"><span class="toc-number">4.1.</span> <span class="toc-text">rehash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-扩容"><span class="toc-number">4.2.</span> <span class="toc-text">1. 扩容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-ReHash"><span class="toc-number">4.3.</span> <span class="toc-text">2. ReHash</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#补充"><span class="toc-number">5.</span> <span class="toc-text">补充</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">6.</span> <span class="toc-text">参考</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -239,9 +482,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yangyoy.cn">
-  <title>第一篇博客 | XiaoYang&#39;Blog</title>
+  <title>为什么要有hashCode | XiaoYang&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第一篇博客-_-">
-<meta name="keywords" content="随笔">
+  <meta name="description" content="考虑一个问题，如果要向一个集合中插入一个元素，怎么判断这个元素是否重复">
+<meta name="keywords" content="java,随笔,hashCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇博客">
-<meta property="og:url" content="http://yangyoy.cn/2019/03/07/第一篇博客/index.html">
+<meta property="og:title" content="为什么要有hashCode">
+<meta property="og:url" content="http://yangyoy.cn/2019/03/11/为什么要有hashCode/index.html">
 <meta property="og:site_name" content="XiaoYang&#39;Blog">
-<meta property="og:description" content="第一篇博客-_-">
+<meta property="og:description" content="考虑一个问题，如果要向一个集合中插入一个元素，怎么判断这个元素是否重复">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://raw.githubusercontent.com/xiexiaoyang/picgo/master/img/14162815372559.jpg">
-<meta property="og:updated_time" content="2019-03-07T08:34:52.916Z">
+<meta property="og:image" content="https://xiexiaoyang.github.io/picgo/images/20190309161022.png">
+<meta property="og:updated_time" content="2019-03-11T02:18:24.271Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第一篇博客">
-<meta name="twitter:description" content="第一篇博客-_-">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/xiexiaoyang/picgo/master/img/14162815372559.jpg">
+<meta name="twitter:title" content="为什么要有hashCode">
+<meta name="twitter:description" content="考虑一个问题，如果要向一个集合中插入一个元素，怎么判断这个元素是否重复">
+<meta name="twitter:image" content="https://xiexiaoyang.github.io/picgo/images/20190309161022.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoYang&#39;Blog" type="application/atom+xml">
   
@@ -163,29 +163,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-第一篇博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-为什么要有hashCode" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      第一篇博客
+      为什么要有hashCode
     </h1>
   
 
         
-        <a href="/2019/03/07/第一篇博客/" class="archive-article-date">
-  	<time datetime="2019-03-07T03:02:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-07 11:02:35</time>
+        <a href="/2019/03/11/为什么要有hashCode/" class="archive-article-date">
+  	<time datetime="2019-03-11T02:16:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-11 10:16:03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="第一篇博客"><a href="#第一篇博客" class="headerlink" title="第一篇博客"></a>第一篇博客</h2><p><strong>-_-</strong></p>
-<p><img src="https://raw.githubusercontent.com/xiexiaoyang/picgo/master/img/14162815372559.jpg" alt="-_-"></p>
+        <p>考虑一个问题，如果要向一个集合中插入一个元素，怎么判断这个元素是否重复</p>
 <a id="more"></a>
+<p>最简单的方法遍历一个个equal，但数据量有一万，一亿个，效率就成了问题。这时hashcode作用体现出来了，调用对象的hashcode方法获得hash值<br>hash一般是数组的索引，通过这个索引找到数组相应的位置，若这个位置值为null，那么不用比较，直接插入；若这个位置存在值，那么进行equal，<br>如果相同，不用插入，如果不同再散列其他位置，这里存在hash冲突的问题。这样一来equal的次数大大减少<br><img src="https://xiexiaoyang.github.io/picgo/images/20190309161022.png" alt="image"><br>那么是否可以通过hashcode来判断两个对象是否相等？ 答案是否定的<br>两个对象的hashcoed相等，这两个对象并不一定是相同的；但两个对象hashcode不相同，这两个对象一定不相同。如果要判断两个对象是否相等，应该通过equal方法</p>
+
       
 
       
@@ -224,7 +225,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hashCode</a>
         		</li>
       		
 		</ul>
@@ -280,7 +289,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yangyoy.cn/2019/03/07/第一篇博客/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yangyoy.cn/2019/03/11/为什么要有hashCode/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -294,18 +303,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/07/hexo-yilia主题-无法显示头像/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/11/hashMap详解/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          hexo yilia主题 无法显示头像
+          hashMap详解
         
       </div>
     </a>
   
   
-    <a href="/2019/03/07/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2019/03/07/hexo-yilia主题-无法显示头像/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo yilia主题 无法显示头像</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -332,7 +341,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一篇博客"><span class="toc-number">1.</span> <span class="toc-text">第一篇博客</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -444,15 +453,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">yilia</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hashCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">hashMap</a>
               </li>
             
             <div class="clearfix"></div>
