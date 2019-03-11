@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yangyoy.cn">
-  <title>hexo yilia主题 无法显示头像 | XiaoYang&#39;Blog</title>
+  <title>springBoot打包项目报错 | XiaoYang&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如图">
-<meta name="keywords" content="hexo,yilia">
+  <meta name="description" content="在对springBoot 项目进行打包时报错 1234Unrecognised tag: &amp;apos;mirrors&amp;apos; (position: START_TAG seen...&amp;lt;/mirror&amp;gt;\n --&amp;gt;\n &amp;lt;mirrors&amp;gt;... @159:12) @F:\Maven\apache-maven-3.3.9\conf\settings.xml, line">
+<meta name="keywords" content="springboot,报错">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo yilia主题 无法显示头像">
-<meta property="og:url" content="http://yangyoy.cn/2019/03/07/hexo-yilia主题-无法显示头像/index.html">
+<meta property="og:title" content="springBoot打包项目报错">
+<meta property="og:url" content="http://yangyoy.cn/2019/03/11/springBoot打包项目报错/index.html">
 <meta property="og:site_name" content="XiaoYang&#39;Blog">
-<meta property="og:description" content="如图">
+<meta property="og:description" content="在对springBoot 项目进行打包时报错 1234Unrecognised tag: &amp;apos;mirrors&amp;apos; (position: START_TAG seen...&amp;lt;/mirror&amp;gt;\n --&amp;gt;\n &amp;lt;mirrors&amp;gt;... @159:12) @F:\Maven\apache-maven-3.3.9\conf\settings.xml, line">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://raw.githubusercontent.com/xiexiaoyang/picgo/master/img/20190307094313.png">
-<meta property="og:updated_time" content="2019-03-07T08:34:22.645Z">
+<meta property="og:image" content="https://xiexiaoyang.github.io/picgo/images/20190311163218.png">
+<meta property="og:updated_time" content="2019-03-11T08:43:39.944Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo yilia主题 无法显示头像">
-<meta name="twitter:description" content="如图">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/xiexiaoyang/picgo/master/img/20190307094313.png">
+<meta name="twitter:title" content="springBoot打包项目报错">
+<meta name="twitter:description" content="在对springBoot 项目进行打包时报错 1234Unrecognised tag: &amp;apos;mirrors&amp;apos; (position: START_TAG seen...&amp;lt;/mirror&amp;gt;\n --&amp;gt;\n &amp;lt;mirrors&amp;gt;... @159:12) @F:\Maven\apache-maven-3.3.9\conf\settings.xml, line">
+<meta name="twitter:image" content="https://xiexiaoyang.github.io/picgo/images/20190311163218.png">
   
     <link rel="alternative" href="/atom.xml" title="XiaoYang&#39;Blog" type="application/atom+xml">
   
@@ -163,39 +163,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hexo-yilia主题-无法显示头像" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-springBoot打包项目报错" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      hexo yilia主题 无法显示头像
+      springBoot打包项目报错
     </h1>
   
 
         
-        <a href="/2019/03/07/hexo-yilia主题-无法显示头像/" class="archive-article-date">
-  	<time datetime="2019-03-07T03:11:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-07 11:11:41</time>
+        <a href="/2019/03/11/springBoot打包项目报错/" class="archive-article-date">
+  	<time datetime="2019-03-11T08:42:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-11 16:42:38</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="如图"><a href="#如图" class="headerlink" title="如图"></a>如图</h3><p><img src="https://raw.githubusercontent.com/xiexiaoyang/picgo/master/img/20190307094313.png" alt="image"></p>
+        <p>在对springBoot 项目进行打包时报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Unrecognised tag: &apos;mirrors&apos; (position: START_TAG seen</span><br><span class="line">...&lt;/mirror&gt;\n --&gt;\n &lt;mirrors&gt;... @159:12) @</span><br><span class="line">F:\Maven\apache-maven-3.3.9\conf\settings.xml, line 159, column</span><br><span class="line">12 [WARNING]</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>原因是源文件有bug</p>
-<p>先修改themes\yilia\layout_partial\left-col.ejs的第六行，改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;img src=&quot;&lt;%=theme.root%&gt;&lt;%=theme.avatar%&gt;&quot; class=&quot;js-avatar&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p>同时，还要修改themes\yilia\layout_partial\mobile-nav.ejs<br>里面的第10行，修改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;img src=&quot;&lt;%=theme.root%&gt;&lt;%=theme.avatar%&gt;&quot; class=&quot;js-avatar&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p>在 ..\themes\yilia\img\下放入图片 如header.jpg</p>
-<p>修改或添加 ..\themes\yilia\_config.yml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">avatar: img/header.jpg</span><br></pre></td></tr></table></figure></p>
-<p><strong><em>注意 ：一定是yilia目录下的配置文件</em></strong></p>
-<p>同理 图标也类似</p>
-<hr>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://davidham3.github.io/blog/2018/07/13/hexo-yilia-%E4%B8%BB%E9%A2%98/" target="_blank" rel="noopener">https://davidham3.github.io/blog/2018/07/13/hexo-yilia-%E4%B8%BB%E9%A2%98/</a></p>
+<p>指向我的maven目录   </p>
+<p>Maven\repository\javax\xml\bind\jaxb-api\unknown</p>
+<p>出现了一个unknown文件夹</p>
+<p><img src="https://xiexiaoyang.github.io/picgo/images/20190311163218.png" alt="image"></p>
+<p>原来是自己的pom.xml的依赖没有指定版本号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;javax.xml.bind&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;jaxb-api&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.3.0&lt;/version&gt;  &lt;!----&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>添加上版本号 就行了</p>
 
       
 
@@ -235,11 +232,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">报错</a>
         		</li>
       		
 		</ul>
@@ -295,7 +292,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yangyoy.cn/2019/03/07/hexo-yilia主题-无法显示头像/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yangyoy.cn/2019/03/11/springBoot打包项目报错/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -309,15 +306,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/11/为什么要有hashCode/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          为什么要有hashCode
-        
-      </div>
-    </a>
   
+    <a href="/2019/03/11/hashMap详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hashMap详解</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -342,7 +335,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#如图"><span class="toc-number">1.</span> <span class="toc-text">如图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
